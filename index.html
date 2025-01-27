@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Etch_a_Sketch</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    
+    const container = document.querySelector("#container");
+    const square = document.createElement("div");
+    square.classList.add("square");
+    square.textContent = "Square";
+    container.appendChild(square);
+    
+    for (let i =1; i < 16; i++) {
+        let newSquare = document.createElement("div");
+        newSquare.classList.add("newSquare");
+        newSquare.textContent = "Square";
+        newSquare.style.flex = "1";
+        for (let i =1; i < 16; i++);
+        container.insertBefore(newSquare, square);
+    }
+
+    /*
+
+    const newLine = document.createElement("div");
+    //const square2 = document.createElement("div");
+    square2.classList.add("square2");
+    square2.textContent = "Square";
+    newLine.appendChild(square2);
+    //document.querySelector("#container");
+       // body.appendChild(newContainer)
+
+    for (let i =1; 1 < 16; i++) {
+        let newSquare2 = document.createElement("div");
+        newSquare2.classList.add("newSquare2");
+        newSquare2.textContent = "Square";
+        newSquare2.style.flex = "1";
+        newContainer.insertBefore(newSquare2, square);
+        body.insertBefore(newContainer, container);
+    }
+    
+  */
+
+</script>
