@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Etch_a_Sketch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16x16 Grid</title>
+    
 </head>
 <body>
-    <div id="container"></div>
+  <div class="container"></div>
 </body>
 </html>
 <script>
-    
-    const container = document.querySelector("#container");
-    const square = document.createElement("div");
-    square.classList.add("square");
-    square.textContent = "Square";
-    container.appendChild(square);
-    
-    for (let i =1; i < 16; i++) {
-        let newSquare = document.createElement("div");
-        newSquare.classList.add("newSquare");
-        newSquare.textContent = "Square";
-        newSquare.style.flex = "1";
-        for (let i =1; i < 16; i++);
-        container.insertBefore(newSquare, square);
-    }
+    // Create and style the container div
+const container = document.createElement('div');
 
-    /*
+// Style the container using Flexbox
+container.style.display = 'flex';
+container.style.flexWrap = 'wrap'; // Allows wrapping of items to the next row
+container.style.width = '400px';  // Total width of the grid
+container.style.height = '400px'; // Total height of the grid
+container.style.border = '1px solid black'; // Optional: border around the grid
+container.style.margin = '0 auto'; // Center the container horizontally on the page
 
-    const newLine = document.createElement("div");
-    //const square2 = document.createElement("div");
-    square2.classList.add("square2");
-    square2.textContent = "Square";
-    newLine.appendChild(square2);
-    //document.querySelector("#container");
-       // body.appendChild(newContainer)
+// Append the container to the body
+document.body.style.display = 'flex';
+document.body.style.justifyContent = 'center';
+document.body.style.alignItems = 'center';
+document.body.style.height = '100vh';
+document.body.style.margin = '0';
+document.body.style.backgroundColor = '#f0f0f0';
+document.body.appendChild(container);
 
-    for (let i =1; 1 < 16; i++) {
-        let newSquare2 = document.createElement("div");
-        newSquare2.classList.add("newSquare2");
-        newSquare2.textContent = "Square";
-        newSquare2.style.flex = "1";
-        newContainer.insertBefore(newSquare2, square);
-        body.insertBefore(newContainer, container);
-    }
-    
-  */
+// Create the 16x16 grid squares
+for (let i = 0; i < 16 * 16; i++) {
+  const square = document.createElement('div');
+  square.style.width = '25px'; // Each square's width (400px / 16)
+  square.style.height = '25px'; // Each square's height (400px / 16)
+  square.style.boxSizing = 'border-box'; // Ensures padding and border are included in the size
+  square.style.border = '1px solid #ddd'; // Optional: Border for grid squares
+  square.style.backgroundColor = 'lightblue'; // Background color for squares
 
+  container.appendChild(square);
+}
 </script>
