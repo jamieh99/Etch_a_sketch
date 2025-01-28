@@ -11,8 +11,76 @@
 </body>
 </html>
 <script>
-    // Create and style the container div
-const container = document.createElement('div');
+
+
+const btnContainer = document.createElement('p');
+btnContainer.style.display = 'flex';
+//btnContainer.style.width = '100%';
+btnContainer.alignItems = 'center';
+//btnContainer.style.flexWrap = 'wrap';
+document.body.appendChild(btnContainer);
+
+const btn = document.createElement('button');
+btnContainer.appendChild(btn);
+btn.addEventListener('click', () => {
+  let numSquares = prompt("How many squares would you like per side for the new grid?");
+  if (numSquares > 100) {
+    let numSquares = prompt("Please enter a number smaller than 100");
+  } 
+  
+  document.body.removeChild(container);
+  
+  const newContainer = document.createElement('div');
+
+  newContainer.style.display = 'flex';
+  newContainer.style.flexWrap = 'wrap'; // Allows wrapping of items to the next row
+  newContainer.style.width = '400px';  // Total width of the grid
+  newContainer.style.height = '400px'; // Total height of the grid 
+  newContainer.style.border = '1px solid black'; // Optional: border around the grid
+  newContainer.style.margin = '0 auto'; // Center the container horizontally on the page
+  document.body.appendChild(newContainer);
+
+  for (let i = 0; i < numSquares * numSquares; i++) {
+  const newSquare = document.createElement('div');
+  let dimensions = 400 / numSquares;
+  newSquare.style.width = dimensions + 'px'; // Each square's width (400px / dimensions)
+  newSquare.style.height = dimensions + 'px'; // Each square's height (400px / dimensions)
+  newSquare.style.boxSizing = 'border-box'; // Ensures padding and border are included in the size
+  newSquare.style.border = '1px solid #ddd'; // Optional: Border for grid squares
+  newSquare.style.backgroundColor = 'lightblue'; // Background color for squares
+
+  newContainer.appendChild(newSquare);
+  
+
+  const squareHover = newContainer.querySelectorAll('div');
+    squareHover.forEach((div) => {
+      let randomInteger = (min, max) => {
+    let _min = Math.ceil(min);
+    let _max = Math.floor(max);
+    return Math.floor(Math.random() * (_max - _min) + _min);
+}
+  
+let R = randomInteger(0, 255);
+    let G = randomInteger(0, 255);
+    let B = randomInteger(0, 255);
+    let randomColor = [R, G, B];
+    
+  div.addEventListener('mouseover', () => {
+    div.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
+   })
+});
+  
+}
+});
+btn.style.width = '50px';
+btn.style.height = '50px';
+btn.textContent = "Begin";
+
+
+
+ 
+ // Create and style the container div
+ const container = document.createElement('div');
 
 // Style the container using Flexbox
 container.style.display = 'flex';
@@ -24,6 +92,7 @@ container.style.margin = '0 auto'; // Center the container horizontally on the p
 
 // Append the container to the body
 document.body.style.display = 'flex';
+document.body.style.flexDirection = 'column';
 document.body.style.justifyContent = 'center';
 document.body.style.alignItems = 'center';
 document.body.style.height = '100vh';
@@ -39,7 +108,18 @@ for (let i = 0; i < 16 * 16; i++) {
   square.style.boxSizing = 'border-box'; // Ensures padding and border are included in the size
   square.style.border = '1px solid #ddd'; // Optional: Border for grid squares
   square.style.backgroundColor = 'lightblue'; // Background color for squares
-
+  
   container.appendChild(square);
 }
+
+const squareHover = document.querySelectorAll('div');
+squareHover.forEach((div) => {
+  div.addEventListener('mouseover', () => {
+    div.style.backgroundColor = 'white';
+  })
+});
+
+
+
+
 </script>
