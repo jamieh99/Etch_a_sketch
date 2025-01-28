@@ -15,21 +15,19 @@
 
 const btnContainer = document.createElement('p');
 btnContainer.style.display = 'flex';
-//btnContainer.style.width = '100%';
 btnContainer.alignItems = 'center';
-//btnContainer.style.flexWrap = 'wrap';
 document.body.appendChild(btnContainer);
 
 const btn = document.createElement('button');
 btnContainer.appendChild(btn);
-btn.addEventListener('click', () => {
+btn.addEventListener('click', function newGame() {
   let numSquares = prompt("How many squares would you like per side for the new grid?");
-  if (numSquares > 100) {
-    let numSquares = prompt("Please enter a number smaller than 100");
-  } 
+  if (numSquares > 32) {
+    let numSquares = prompt("Please enter a number smaller than 33");
+  };
   
   document.body.removeChild(container);
-  
+
   const newContainer = document.createElement('div');
 
   newContainer.style.display = 'flex';
@@ -51,34 +49,29 @@ btn.addEventListener('click', () => {
 
   newContainer.appendChild(newSquare);
   
-
   const squareHover = newContainer.querySelectorAll('div');
     squareHover.forEach((div) => {
-      let randomInteger = (min, max) => {
+    let randomInteger = (min, max) => {
     let _min = Math.ceil(min);
     let _max = Math.floor(max);
     return Math.floor(Math.random() * (_max - _min) + _min);
-}
-  
-let R = randomInteger(0, 255);
+    }
+    let R = randomInteger(0, 255);
     let G = randomInteger(0, 255);
     let B = randomInteger(0, 255);
     let randomColor = [R, G, B];
     
   div.addEventListener('mouseover', () => {
     div.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
-   })
-});
-  
-}
-});
+   });
+  });  
+  };
+});  
 btn.style.width = '50px';
 btn.style.height = '50px';
 btn.textContent = "Begin";
 
 
-
- 
  // Create and style the container div
  const container = document.createElement('div');
 
@@ -110,16 +103,15 @@ for (let i = 0; i < 16 * 16; i++) {
   square.style.backgroundColor = 'lightblue'; // Background color for squares
   
   container.appendChild(square);
-}
+};
 
 const squareHover = document.querySelectorAll('div');
 squareHover.forEach((div) => {
   div.addEventListener('mouseover', () => {
     div.style.backgroundColor = 'white';
-  })
+  });
 });
 
-
-
-
 </script>
+
+
