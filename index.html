@@ -21,12 +21,18 @@ document.body.appendChild(btnContainer);
 const btn = document.createElement('button');
 btnContainer.appendChild(btn);
 btn.addEventListener('click', function newGame() {
-  let numSquares = prompt("How many squares would you like per side for the new grid?");
+  let numSquares = prompt("Maximum 32 - How many squares would you like per side for the new grid?");
+
+  // Check if the input is greater than 32
   if (numSquares > 32) {
-    let numSquares = prompt("Please enter a number smaller than 33");
-  };
+    alert("Please enter a number less than or equal to 32.");
+    return; // Exit the function early if input is invalid
+  }
   
+  // If input is valid, proceed with the rest of the code
   document.body.removeChild(container);
+  // Continue with the rest of your logic here
+
 
   const newContainer = document.createElement('div');
 
@@ -64,9 +70,7 @@ btn.addEventListener('click', function newGame() {
   div.addEventListener('mouseover', () => {
     div.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
    });
-  });  
-  };
-});  
+  })}});  
 btn.style.width = '50px';
 btn.style.height = '50px';
 btn.textContent = "Begin";
